@@ -8,8 +8,8 @@ $("#search-button").click(function(){
       url: "https://api.giphy.com/v1/gifs/search?q=puppy&rating=pg&api_key=cVRNyx7QJZX0F6nTWQ0XbssO1yb4KtSM",
       method: "GET",
       success: function(response) {
-          $(".image")
-          console.log(response)
+          $(".image").append("<img src= + "https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png" + </img>");
+          console.log(response);
       },
       
   });
