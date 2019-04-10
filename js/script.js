@@ -4,15 +4,35 @@
 /* global $ */
 
 $("#search-button").click(function(){
+  var searchterm = $("#search-term").val();
   $.ajax({
-      url: "https://api.giphy.com/v1/gifs/search?q=puppy&rating=pg&api_key=cVRNyx7QJZX0F6nTWQ0XbssO1yb4KtSM",
+      url: "https://api.giphy.com/v1/gifs/search?q=" +searchterm + "&rating=pg&api_key=cVRNyx7QJZX0F6nTWQ0XbssO1yb4KtSM",
       method: "GET",
       success: function(response) {
-          $(".image").append("<img src= + "https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png" + </img>");
+          $("body").append("<img src=" + response.data[0].images.original.url  + ">");
           console.log(response);
+        
       },
       
   });
   
   
 });
+
+$("#search-term").click(function(){
+  var searchterm = $("#search-term").val();
+
+    $.ajax({
+      url: "https://api.giphy.com/v1/gifs/search?q=" +searchterm + "&rating=pg&api_key=cVRNyx7QJZX0F6nTWQ0XbssO1yb4KtSM",
+      method: "GET",
+      success: function(response) {
+        $('body').append("<img src=" + response.data[0].images.original.url + ">");
+        console.log(response);
+      }
+      
+    });
+  
+  
+});
+
+
